@@ -1,0 +1,41 @@
+{
+  "product": {
+    "name": "גבינה צהובה",
+    "price": 31,
+    "valueInSales": 440
+  },
+  "supplier": {
+    "name": "מחלבות גד",
+    "type": "daily"
+  },
+  "sizes": {
+    "stockDaily": "ambat",
+    "stockmonthly": "kg",
+    "inOrder": "kg",
+    "kg": 1,
+    "box": 2,
+    "unit": 2,
+    "third": 2,
+    "dThird": 4,
+    "boxDough": 6,
+    "ambat": 11
+  },
+  "inStock": {
+    "kg": 1.75,
+    "box": 2.5,
+    "unit": 2,
+    "third": 2,
+    "dThird": 4,
+    "boxDough": 8,
+    "ambat": 11.33,
+    "totalInStock": 0
+  },
+  "calculations": {
+    "salesValue": 200,
+    "orderInventoryValue": 0,
+    "outOfStock": 0,
+    "needToOrder": 0,
+    "monthlyInventoryValue": 0
+  },
+  "insertOrder": 0
+}
