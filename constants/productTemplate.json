@@ -31,7 +31,6 @@
     "totalInStock": 0
   },
   "calculations": {
-    "salesValue": 200,
     "orderInventoryValue": 0,
     "outOfStock": 0,
     "needToOrder": 0,

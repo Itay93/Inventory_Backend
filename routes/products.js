@@ -5,7 +5,7 @@ const router = express.Router();
 
 // get all products
 router.get("/", async (req, res) => {
-  const products = await Product.find().sort("product.name");
+  const products = await Product.find().sort("supplier.name");
   if (products.length === 0)
     return res.status(404).json({ isError: true, error: "לא נמצאו מוצרים" });
 
@@ -58,7 +58,6 @@ router.post("/", async (req, res) => {
       "totalInStock",
     ]),
     calculations: _.pick(req.body.calculations, [
-      "salesValue",
       "orderInventoryValue",
       "outOfStock",
       "needToOrder",

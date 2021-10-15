@@ -33,7 +33,6 @@ const inStockSchema = new mongoose.Schema({
   totalInStock: { type: Number, required: true },
 });
 const calculationsSchema = new mongoose.Schema({
-  salesValue: { type: Number, required: true },
   orderInventoryValue: { type: Number, required: true },
   outOfStock: { type: Number, required: true },
   needToOrder: { type: Number, required: true },
@@ -86,7 +85,6 @@ const validateProduct = (product) => {
       totalInStock: Joi.number().required(),
     }).required(),
     calculations: Joi.object({
-      salesValue: Joi.number().required(),
       orderInventoryValue: Joi.number().required(),
       outOfStock: Joi.number().required(),
       needToOrder: Joi.number().required(),

@@ -1,6 +1,13 @@
-const PRODUCT = { NAME: "שם מוצר", PRICE: "מחיר מוצר" };
+const PRODUCT = {
+  NAME: "שם מוצר",
+  PRICE: "מחיר מוצר",
+  VALUE_IN_SALES: "שווי במכירות",
+};
 const SUPPLIER = { NAME: "שם ספק", TYPE: "סוג ספק" };
 const SIZES = {
+  STOCK_DAILY: "מידה ביומית",
+  STOCK_MONTHLY: "מידה בחודשית",
+  IN_ORDER: "מידה בהזמנה",
   KG: 'ק"ג',
   UNIT: "יחידה",
   BOX: "קרטון",
@@ -19,18 +26,20 @@ const IN_STOCK = {
   BATH: "כמות אמבטיות",
   TOTAL: "כמות במלאי",
 };
-const TABLE_COLUMNS = [
+const CALCULATIONS = {
+  ORDER_INVENTORY_VALUE: "שווי מלאי במחזור",
+  OUT_OF_STOCK: "חסר במלאי",
+  NEED_TO_ORDER: "צריך להזמין",
+  MONTHLY_INVENTORY_VALUE: "שווי מלאי בחודשית",
+};
+const INSERT_ORDER = "הכנס הזמנה",
+const DAILY_TABLE_COLUMNS = [
+  SUPPLIER.NAME,
   PRODUCT.NAME,
   PRODUCT.PRICE,
-  SUPPLIER.NAME,
-  SUPPLIER.TYPE,
-  SIZES.KG,
-  SIZES.UNIT,
-  SIZES.BOX,
-  SIZES.THIRD,
-  SIZES.D_THIRD,
-  SIZES.BOX_DOUGH,
-  SIZES.BATH,
+  PRODUCT.VALUE_IN_SALES,
+  SIZES.STOCK_DAILY,
+  SIZES.IN_ORDER,
   IN_STOCK.KG,
   IN_STOCK.UNIT,
   IN_STOCK.BOX,
@@ -39,6 +48,9 @@ const TABLE_COLUMNS = [
   IN_STOCK.BOX_DOUGH,
   IN_STOCK.BATH,
   IN_STOCK.TOTAL,
+  CALCULATIONS.ORDER_INVENTORY_VALUE,
+  CALCULATIONS.OUT_OF_STOCK,
+  CALCULATIONS.NEED_TO_ORDER,
 ];
 const INVENTORY_COUNTING = {
   DAILY: "ספירת מלאי יומית",
@@ -52,6 +64,8 @@ exports.LABELS = {
   SUPPLIER,
   SIZES,
   IN_STOCK,
-  TABLE_COLUMNS,
+  CALCULATIONS,
+  INSERT_ORDER,
+  DAILY_TABLE_COLUMNS,
   INVENTORY_COUNTING,
 };
