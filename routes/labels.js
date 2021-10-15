@@ -5,7 +5,7 @@ const router = express.Router();
 
 // get all labels
 router.get("/", (req, res) => {
-  res.json({ isError: false, data: LABELS });
+  res.send({ isError: false, LABELS });
 });
 
 module.exports = router;
