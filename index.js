@@ -3,6 +3,7 @@ const express = require("express");
 const app = express();
 
 const labels = require("./routes/labels");
+const suppliers = require("./routes/suppliers");
 const products = require("./routes/products");
 
 const connectToAtlas = async () => {
@@ -15,7 +16,8 @@ const connectToAtlas = async () => {
 connectToAtlas();
 
 app.use(express.json());
-app.use("/api/labels", labels);
+app.use("/api/constants/labels", labels);
+app.use("/api/suppliers", suppliers);
 app.use("/api/products", products);
 
 const port = process.env.PORT || 3000;
