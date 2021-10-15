@@ -1,4 +1,6 @@
 const mongoose = require("mongoose");
+const helmet = require("helmet");
+const compression = require("compression");
 const express = require("express");
 const app = express();
 
@@ -19,6 +21,8 @@ app.use(express.json());
 app.use("/api/constants/labels", labels);
 app.use("/api/suppliers", suppliers);
 app.use("/api/products", products);
+app.use(helmet());
+app.use(compression());
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`Listening on port ${port}...`));
