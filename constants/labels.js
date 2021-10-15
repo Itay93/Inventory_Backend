@@ -3,7 +3,14 @@ const PRODUCT = {
   PRICE: "מחיר מוצר",
   VALUE_IN_SALES: "שווי במכירות",
 };
-const SUPPLIER = { NAME: "שם ספק", TYPE: "סוג ספק" };
+const SUPPLIER = {
+  NAME: "שם ספק",
+  TYPE: "סוג ספק",
+  TYPES: ["יומי", "שבועי", "דו-שבועי", "מיוחד"],
+  DELIVERY_DAYS: ["ראשון", "שני", "שלישי", "רביעי", "חמישי", "שישי"],
+  ORDER_DAYS: ["שבת", "ראשון", "שני", "שלישי", "רביעי", "חמישי"],
+  COMMUNICATION_OPTIONS: ["אימייל", "וואצאפ", "טלפון"],
+};
 const SIZES = {
   STOCK_DAILY: "מידה ביומית",
   STOCK_MONTHLY: "מידה בחודשית",
@@ -32,7 +39,7 @@ const CALCULATIONS = {
   NEED_TO_ORDER: "צריך להזמין",
   MONTHLY_INVENTORY_VALUE: "שווי מלאי בחודשית",
 };
-const INSERT_ORDER = "הכנס הזמנה",
+const INSERT_ORDER = "הכנס הזמנה";
 const DAILY_TABLE_COLUMNS = [
   SUPPLIER.NAME,
   PRODUCT.NAME,
