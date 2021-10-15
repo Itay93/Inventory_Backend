@@ -17,6 +17,12 @@ const connectToAtlas = async () => {
 
 connectToAtlas();
 
+// Add Access Control Allow Origin headers
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  next();
+});
+
 app.use(express.json());
 app.use("/api/constants/labels", labels);
 app.use("/api/suppliers", suppliers);

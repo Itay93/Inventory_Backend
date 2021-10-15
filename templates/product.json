@@ -6,12 +6,12 @@
   },
   "supplier": {
     "name": "מחלבות גד",
-    "type": "daily"
+    "type": "יומי"
   },
   "sizes": {
-    "stockDaily": "ambat",
-    "stockmonthly": "kg",
-    "inOrder": "kg",
+    "stockDaily": "אמבטיה",
+    "stockmonthly": "קג",
+    "inOrder": "קג",
     "kg": 1,
     "box": 2,
     "unit": 2,
