@@ -1,3 +1,4 @@
+require("express-async-errors");
 const mongoose = require("mongoose");
 const helmet = require("helmet");
 const compression = require("compression");
@@ -7,6 +8,16 @@ const app = express();
 const constants = require("./routes/constants");
 const suppliers = require("./routes/suppliers");
 const products = require("./routes/products");
+
+process.on("uncaughtException", (err) => {
+  console.log(err);
+  process.exit(1);
+});
+
+process.on("unhandledRejection", (err) => {
+  console.log(err);
+  process.exit(1);
+});
 
 const connectToAtlas = async () => {
   await mongoose.connect(
@@ -21,11 +32,13 @@ app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   next();
 });
-
 app.use(express.json());
 app.use("/api/constants", constants);
 app.use("/api/suppliers", suppliers);
 app.use("/api/products", products);
+app.use((err, req, res, next) => {
+  res.status(500).send(err.message);
+});
 app.use(helmet());
 app.use(compression());
 
