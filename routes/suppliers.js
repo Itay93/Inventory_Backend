@@ -1,13 +1,19 @@
-const { Supplier, validate } = require("../models/supplier");
 const _ = require("lodash");
 const express = require("express");
 const router = express.Router();
 
+const { ENG_LABELS } = require("../constants/labels/engLabels");
+const { HEB_MESSAGES } = require("../constants/messages/hebMessages");
+const { Supplier, validate } = require("../models/supplier");
+
 // get all suppliers
 router.get("/", async (req, res) => {
-  const suppliers = await Supplier.find().sort("name");
+  const suppliers = await Supplier.find().sort(ENG_LABELS.SUPPLIER.NAME);
   if (suppliers.length === 0)
-    return res.status(404).send({ isError: true, error: "לא נמצאו ספקים" });
+    return res.status(404).send({
+      isError: true,
+      error: HEB_MESSAGES.ERRORS.SUPPLIER.NO_SUPPLIERS,
+    });
   res.send({ isError: false, suppliers });
 });
 
@@ -15,9 +21,10 @@ router.get("/", async (req, res) => {
 router.get("/:id", async (req, res) => {
   const supplier = await Supplier.findById(req.params.id);
   if (!supplier)
-    return res
-      .status(404)
-      .send({ isError: true, error: "לא נמצא ספק עם המזהה שהוזן" });
+    return res.status(404).send({
+      isError: true,
+      error: HEB_MESSAGES.ERRORS.SUPPLIER.NO_SUPPLIER_WITH_ID,
+    });
   res.send({ isError: true, supplier });
 });
 
@@ -30,13 +37,15 @@ router.post("/", async (req, res) => {
       .send({ isError: true, error: error.details[0].message });
   const supplier = new Supplier(
     _.pick(req.body, [
-      "name",
-      "type",
-      "deliveryDays",
-      "orderDays",
-      "salesAgent",
-      "number",
-      "orderBy",
+      _.pick(ENG_LABELS.SUPPLIER, [
+        NAME,
+        TYPE,
+        DELIVERY_DAYS,
+        ORDER_DAYS,
+        SALES_AGENT,
+        NUMBER,
+        ORDER_BY,
+      ]),
     ])
   );
   await supplier.save();
@@ -50,9 +59,10 @@ router.put("/:id", async (req, res) => {});
 router.delete("/:id", async (req, res) => {
   const supplier = await Supplier.findByIdAndRemove(req.params.id);
   if (!supplier)
-    return res
-      .status(404)
-      .send({ isError: true, error: "לא נמצא ספק עם המזהה שהוזן" });
+    return res.status(404).send({
+      isError: true,
+      error: HEB_MESSAGES.ERRORS.SUPPLIER.NO_SUPPLIER_WITH_ID,
+    });
   res.send({ isError: false, supplier });
 });
 

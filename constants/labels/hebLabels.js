@@ -66,7 +66,7 @@ const INVENTORY_COUNTING = {
   MONTHLY: "ספירת מלאי חודשית",
 };
 
-exports.LABELS = {
+exports.HEB_LABELS = {
   PRODUCT,
   SUPPLIER,
   SIZES,
