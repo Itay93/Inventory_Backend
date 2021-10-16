@@ -4,7 +4,7 @@ const compression = require("compression");
 const express = require("express");
 const app = express();
 
-const labels = require("./routes/labels");
+const constants = require("./routes/constants");
 const suppliers = require("./routes/suppliers");
 const products = require("./routes/products");
 
@@ -23,7 +23,7 @@ app.use((req, res, next) => {
 });
 
 app.use(express.json());
-app.use("/api/constants/labels", labels);
+app.use("/api/constants", constants);
 app.use("/api/suppliers", suppliers);
 app.use("/api/products", products);
 app.use(helmet());
