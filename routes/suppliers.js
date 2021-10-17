@@ -37,15 +37,14 @@ router.post("/", async (req, res) => {
       .send({ isError: true, error: error.details[0].message });
   const supplier = new Supplier(
     _.pick(req.body, [
-      _.pick(ENG_LABELS.SUPPLIER, [
-        NAME,
-        TYPE,
-        DELIVERY_DAYS,
-        ORDER_DAYS,
-        SALES_AGENT,
-        NUMBER,
-        ORDER_BY,
-      ]),
+      ENG_LABELS.SUPPLIER.NAME,
+      ENG_LABELS.SUPPLIER.TYPE,
+      ENG_LABELS.SUPPLIER.DELIVERY_DAYS,
+      ENG_LABELS.SUPPLIER.ORDER_DAYS,
+      ENG_LABELS.SUPPLIER.SALES_AGENT,
+      ENG_LABELS.SUPPLIER.NUMBER,
+      ENG_LABELS.SUPPLIER.ORDER_BY,
+      ,
     ])
   );
   await supplier.save();
