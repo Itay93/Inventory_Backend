@@ -21,13 +21,13 @@
     "ambat": 11
   },
   "inStock": {
-    "kg": 1.75,
-    "box": 2.5,
-    "unit": 2,
-    "third": 2,
-    "dThird": 4,
-    "boxDough": 8,
-    "ambat": 11.33,
+    "kg": 0,
+    "box": 0,
+    "unit": 0,
+    "third": 0,
+    "dThird": 0,
+    "boxDough": 0,
+    "ambat": 0,
     "totalInStock": 0
   },
   "calculations": {
