@@ -6,11 +6,20 @@ const { ENG_LABELS } = require("../constants/labels/engLabels");
 const { HEB_MESSAGES } = require("../constants/messages/hebMessages");
 const { Product, validate } = require("../models/product");
 
-// get all products
+// get all products or products by supplier type
 router.get("/", async (req, res) => {
-  const products = await Product.find().sort(
-    `${ENG_LABELS.SUPPLIER.SUPPLIER}.${ENG_LABELS.SUPPLIER.NAME}`
-  );
+  let products = [];
+
+  if (Object.keys(req.query).length > 0) {
+    products = await Product.find({
+      "supplier.type": req.query.type,
+    }).sort(`${ENG_LABELS.SUPPLIER.SUPPLIER}.${ENG_LABELS.SUPPLIER.NAME}`);
+  } else {
+    products = await Product.find().sort(
+      `${ENG_LABELS.SUPPLIER.SUPPLIER}.${ENG_LABELS.SUPPLIER.NAME}`
+    );
+  }
+
   if (products.length === 0)
     return res
       .status(404)
