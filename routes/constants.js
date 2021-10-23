@@ -1,11 +1,11 @@
 const express = require("express");
 const router = express.Router();
 
-const { ENG_LABELS } = require("../constants/labels/engLabels");
-const { HEB_LABELS } = require("../constants/labels/hebLabels");
+const { ENG } = require("../constants/labels/engLabels");
+const { HEB } = require("../constants/labels/hebLabels");
 
 router.get("/", (req, res) => {
-  res.send({ isError: false, constants: { ENG_LABELS, HEB_LABELS } });
+  res.send({ isError: false, constants: { ENG, HEB } });
 });
 
 module.exports = router;

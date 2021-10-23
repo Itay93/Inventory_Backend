@@ -43,7 +43,7 @@ const CALCULATIONS = {
   MONTHLY_INVENTORY_VALUE: "monthlyInventoryValue",
 };
 
-exports.ENG_LABELS = {
+exports.ENG = {
   PRODUCT,
   SUPPLIER,
   SIZES,

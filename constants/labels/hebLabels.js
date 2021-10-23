@@ -39,7 +39,7 @@ const CALCULATIONS = {
   NEED_TO_ORDER: "צריך להזמין",
   MONTHLY_INVENTORY_VALUE: "שווי מלאי בחודשית",
 };
-const INSERT_ORDER = "הכנס הזמנה";
+const INSERT_ORDER = "הזן הזמנה";
 const DAILY_TABLE_COLUMNS = [
   SUPPLIER.NAME,
   PRODUCT.NAME,
@@ -60,14 +60,8 @@ const DAILY_TABLE_COLUMNS = [
   CALCULATIONS.NEED_TO_ORDER,
   INSERT_ORDER,
 ];
-const INVENTORY_COUNTING = {
-  DAILY: "ספירת מלאי יומית",
-  WEEKLY: "ספירת מלאי שבועית",
-  FORTNIGHTLY: "ספירת מלאי דו-שבועית",
-  MONTHLY: "ספירת מלאי חודשית",
-};
 
-exports.HEB_LABELS = {
+exports.HEB = {
   PRODUCT,
   SUPPLIER,
   SIZES,
