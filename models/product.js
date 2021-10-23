@@ -12,7 +12,7 @@ const supplierSchema = new mongoose.Schema({
 });
 const sizesSchema = new mongoose.Schema({
   stockDaily: { type: String, required: true, trim: true },
-  stockmonthly: { type: String, required: true, trim: true },
+  stockMonthly: { type: String, required: true, trim: true },
   inOrder: { type: String, required: true, trim: true },
   kg: { type: Number, required: true },
   box: { type: Number, required: true },
