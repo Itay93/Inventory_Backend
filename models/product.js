@@ -64,7 +64,7 @@ const validateProduct = (product) => {
     }).required(),
     sizes: Joi.object({
       stockDaily: Joi.string().required(),
-      stockmonthly: Joi.string().required(),
+      stockMonthly: Joi.string().required(),
       inOrder: Joi.string().required(),
       kg: Joi.number().required(),
       box: Joi.number().required(),
