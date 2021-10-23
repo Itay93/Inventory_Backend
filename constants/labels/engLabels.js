@@ -16,7 +16,7 @@ const SUPPLIER = {
 };
 const SIZES = {
   STOCK_DAILY: "stockDaily",
-  STOCK_MONTHLY: "stockmonthly",
+  STOCK_MONTHLY: "stockMonthly",
   IN_ORDER: "inOrder",
   KG: "kg",
   BOX: "box",
