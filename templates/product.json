@@ -10,8 +10,8 @@
   },
   "sizes": {
     "stockDaily": "אמבטיה",
-    "stockmonthly": "קג",
-    "inOrder": "קג",
+    "stockMonthly": "ק\"ג",
+    "inOrder": "ק\"ג",
     "kg": 1,
     "box": 2,
     "unit": 2,
