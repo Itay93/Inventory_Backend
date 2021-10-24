@@ -30,6 +30,14 @@ connectToAtlas();
 
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "origin, x-requested-with, content-type"
+  );
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "PUT, GET, POST, DELETE, OPTIONS"
+  );
   next();
 });
 app.use(express.json());
