@@ -43,7 +43,7 @@ const CALCULATIONS = {
 };
 const INSERT_ORDER = "הזן הזמנה";
 const INVENTORY = {
-  TABELS_OPTIONS: ["יומית", "שבועית", "דו-שבועית", "מיוחדת", "חודשית"],
+  TABLES_OPTIONS: ["יומית", "שבועית", "דו-שבועית", "מיוחדת", "חודשית"],
   TABLES_COLUMNS: [
     SUPPLIER.NAME,
     PRODUCT.NAME,
