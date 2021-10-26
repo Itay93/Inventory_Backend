@@ -5,6 +5,7 @@ const productSchema = new mongoose.Schema({
   name: { type: String, required: true, trim: true },
   price: { type: Number, required: true },
   valueInSales: { type: Number, required: true },
+  includeInMonthlyInventory: { type: Boolean, required: true },
 });
 const supplierSchema = new mongoose.Schema({
   name: { type: String, required: true, trim: true },
@@ -23,20 +24,20 @@ const sizesSchema = new mongoose.Schema({
   ambat: { type: Number, required: true },
 });
 const inStockSchema = new mongoose.Schema({
-  kg: { type: Number, required: true, default: 0 },
-  box: { type: Number, required: true, default: 0 },
-  unit: { type: Number, required: true, default: 0 },
-  third: { type: Number, required: true, default: 0 },
-  dThird: { type: Number, required: true, default: 0 },
-  boxDough: { type: Number, required: true, default: 0 },
-  ambat: { type: Number, required: true, default: 0 },
-  totalInStock: { type: Number, required: true, default: 0 },
+  kg: { type: Number, required: true },
+  box: { type: Number, required: true },
+  unit: { type: Number, required: true },
+  third: { type: Number, required: true },
+  dThird: { type: Number, required: true },
+  boxDough: { type: Number, required: true },
+  ambat: { type: Number, required: true },
+  totalInStock: { type: Number, required: true },
 });
 const calculationsSchema = new mongoose.Schema({
-  orderInventoryValue: { type: Number, required: true, default: 0 },
-  outOfStock: { type: Number, required: true, default: 0 },
-  needToOrder: { type: Number, required: true, default: 0 },
-  monthlyInventoryValue: { type: Number, required: true, default: 0 },
+  orderInventoryValue: { type: Number, required: true },
+  outOfStock: { type: Number, required: true },
+  needToOrder: { type: Number, required: true },
+  monthlyInventoryValue: { type: Number, required: true },
 });
 
 const Product = mongoose.model(
@@ -47,7 +48,7 @@ const Product = mongoose.model(
     sizes: { type: sizesSchema, required: true },
     inStock: { type: inStockSchema, required: true },
     calculations: { type: calculationsSchema, required: true },
-    insertOrder: { type: Number, required: true, default: 0 },
+    insertOrder: { type: Number, required: true },
   })
 );
 
@@ -57,6 +58,7 @@ const validateProduct = (product) => {
       name: Joi.string().required(),
       price: Joi.number().required(),
       valueInSales: Joi.number().required(),
+      includeInMonthlyInventory: Joi.boolean().required(),
     }).required(),
     supplier: Joi.object({
       name: Joi.string().required(),
