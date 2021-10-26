@@ -8,18 +8,12 @@ const { Supplier, validate } = require("../models/supplier");
 // get all suppliers
 router.get("/", async (req, res) => {
   const suppliers = await Supplier.find().sort(ENG.SUPPLIER.NAME);
-  res.send({ isError: false, suppliers });
-});
-
-// get supplier by id
-router.get("/:id", async (req, res) => {
-  const supplier = await Supplier.findById(req.params.id);
-  if (!supplier)
+  if (suppliers.length === 0)
     return res.status(404).send({
       isError: true,
-      error: "",
+      error: "No suppliers found.",
     });
-  res.send({ isError: true, supplier });
+  res.send({ isError: false, suppliers });
 });
 
 // post supplier
@@ -45,7 +39,7 @@ router.post("/", async (req, res) => {
   res.send({ isError: false, supplier });
 });
 
-// delete supplier by id
+// delete supplier
 router.delete("/:id", async (req, res) => {
   const supplier = await Supplier.findByIdAndRemove(req.params.id);
   if (!supplier)
