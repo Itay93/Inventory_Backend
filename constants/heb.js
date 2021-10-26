@@ -24,11 +24,20 @@ const SIZES = {
     "קופסאת כדורים",
     "אמבטיה",
   ],
+  VALUES: {
+    KG: 'שווי ק"ג',
+    BOX: "שווי קרטון",
+    UNIT: "שווי יחידה",
+    THIRD: "שווי שליש",
+    D_THIRD: "שווי ד. שליש",
+    BOX_DOUGH: "שווי ק. כדור",
+    BATH: "שווי אמבטיה",
+  },
 };
 const IN_STOCK = {
   KG: 'מלאי בק"ג',
-  UNIT: "יחידות במלאי",
   BOX: "קרטונים במלאי",
+  UNIT: "יחידות במלאי",
   THIRD: "כמות שלישים",
   D_THIRD: "כמות ד. שליש",
   BOX_DOUGH: "כמות ק. כדורים",
@@ -42,6 +51,23 @@ const CALCULATIONS = {
   MONTHLY_INVENTORY_VALUE: "שווי מלאי בחודשית",
 };
 const INSERT_ORDER = "הזן הזמנה";
+const PRODUCTS_TABLE_COLUMNS = [
+  PRODUCT.NAME,
+  PRODUCT.PRICE,
+  PRODUCT.VALUE_IN_SALES,
+  SUPPLIER.NAME,
+  SUPPLIER.TYPE,
+  SIZES.STOCK_DAILY,
+  SIZES.STOCK_MONTHLY,
+  SIZES.IN_ORDER,
+  SIZES.TYPES.KG,
+  SIZES.TYPES.BOX,
+  SIZES.TYPES.UNIT,
+  SIZES.TYPES.THIRD,
+  SIZES.TYPES.D_THIRD,
+  SIZES.TYPES.BOX_DOUGH,
+  SIZES.TYPES.BATH,
+];
 const INVENTORY = {
   TABLES_OPTIONS: ["יומית", "שבועית", "דו-שבועית", "מיוחדת", "חודשית"],
   TABLES_COLUMNS: [
@@ -68,6 +94,7 @@ const INVENTORY = {
 
 exports.HEB = {
   PRODUCT,
+  PRODUCTS_TABLE_COLUMNS,
   SUPPLIER,
   SIZES,
   IN_STOCK,
