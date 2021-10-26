@@ -14,7 +14,7 @@ const SUPPLIER = {
   DELIVERY_DAYS: ["ראשון", "שני", "שלישי", "רביעי", "חמישי", "שישי"],
   SALES_AGENT: "סוכן מכירות",
   PHONE_NUMBER: "מספר טלפון",
-  COMMUNICATION_LABEL: "ביצוע הזמנה דרך",
+  COMMUNICATION_LABEL: "ביצוע הזמנה באמצעות",
   COMMUNICATION_OPTIONS: ["אימייל", "וואצאפ", "טלפון"],
 };
 const SIZES = {
