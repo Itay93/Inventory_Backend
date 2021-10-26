@@ -3,6 +3,7 @@ const PRODUCT = {
   NAME: "name",
   PRICE: "price",
   VALUE_IN_SALES: "valueInSales",
+  INCLUDE_IN_MONTHLY_INVENTORY: "includeInMonthlyInventory",
 };
 const SUPPLIER = {
   SUPPLIER: "supplier",

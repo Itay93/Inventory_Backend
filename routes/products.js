@@ -30,6 +30,7 @@ router.post("/", async (req, res) => {
       ENG.PRODUCT.NAME,
       ENG.PRODUCT.PRICE,
       ENG.PRODUCT.VALUE_IN_SALES,
+      ENG.PRODUCT.INCLUDE_IN_MONTHLY_INVENTORY,
     ]),
     supplier: _.pick(req.body.supplier, [ENG.SUPPLIER.NAME, ENG.SUPPLIER.TYPE]),
     sizes: _.pick(req.body.sizes, [
