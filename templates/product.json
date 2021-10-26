@@ -2,7 +2,8 @@
   "product": {
     "name": "גבינה צהובה",
     "price": 31,
-    "valueInSales": 440
+    "valueInSales": 440,
+    "includeInMonthlyInventory": false
   },
   "supplier": {
     "name": "מחלבות גד",
