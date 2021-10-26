@@ -5,32 +5,17 @@ const router = express.Router();
 const { ENG } = require("../constants/eng");
 const { Product, validate } = require("../models/product");
 
-// get all products or products by supplier type
+// get all products
 router.get("/", async (req, res) => {
-  let products = [];
-
-  if (Object.keys(req.query).length > 0) {
-    products = await Product.find({
-      "supplier.type": req.query.type,
-    }).sort(`${ENG.SUPPLIER.SUPPLIER}.${ENG.SUPPLIER.NAME}`);
-  } else {
-    products = await Product.find().sort(
-      `${ENG.SUPPLIER.SUPPLIER}.${ENG.SUPPLIER.NAME}`
-    );
-  }
-
-  res.send({ isError: false, products });
-});
-
-// get product by id
-router.get("/:id", async (req, res) => {
-  const product = await Product.findById(req.params.id);
-  if (!product)
+  const products = await Product.find().sort(
+    `${ENG.SUPPLIER.SUPPLIER}.${ENG.SUPPLIER.NAME}`
+  );
+  if (products.length === 0)
     return res.status(404).send({
       isError: true,
-      error: "",
+      error: "No products found.",
     });
-  res.send({ isError: false, product });
+  res.send({ isError: false, products });
 });
 
 // post product
@@ -81,13 +66,13 @@ router.post("/", async (req, res) => {
   res.send({ isError: false, product });
 });
 
-// delete product by id
+// delete product
 router.delete("/:id", async (req, res) => {
   const product = await Product.findByIdAndRemove(req.params.id);
   if (!product)
     return res.status(404).send({
       isError: true,
-      error: "",
+      error: "No product with the given id.",
     });
   res.send({ isError: false, product });
 });
