@@ -2,6 +2,7 @@ const PRODUCT = {
   NAME: "שם מוצר",
   PRICE: "מחיר מוצר",
   VALUE_IN_SALES: "שווי במכירות",
+  INCLUDE_IN_MONTHLY_INVENTORY: "נכלל בטבלה החודשית",
 };
 const SUPPLIER = {
   NAME: "שם ספק",
@@ -55,6 +56,7 @@ const PRODUCTS_TABLE_COLUMNS = [
   PRODUCT.NAME,
   PRODUCT.PRICE,
   PRODUCT.VALUE_IN_SALES,
+  PRODUCT.INCLUDE_IN_MONTHLY_INVENTORY,
   SUPPLIER.NAME,
   SUPPLIER.TYPE,
   SIZES.STOCK_DAILY,
