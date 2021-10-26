@@ -1,8 +1,8 @@
 {
   "name": "צחי פתרונות ירקות בע״מ",
   "type": "יומי",
-  "deliveryDays": ["ראשון"],
   "orderDays": ["שלישי"],
+  "deliveryDays": ["ראשון"],
   "salesAgent": "צחי",
   "number": "0501234567",
   "orderBy": "אימייל"

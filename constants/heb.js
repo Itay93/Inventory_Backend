@@ -8,8 +8,13 @@ const SUPPLIER = {
   NAME: "שם ספק",
   TYPE: "סוג ספק",
   TYPES: ["יומי", "שבועי", "דו-שבועי", "מיוחד"],
-  DELIVERY_DAYS: ["ראשון", "שני", "שלישי", "רביעי", "חמישי", "שישי"],
+  ORDER_DAYS_LABEL: "ימי הזמנה",
   ORDER_DAYS: ["שבת", "ראשון", "שני", "שלישי", "רביעי", "חמישי"],
+  DELIVERY_DAYS_LABEL: "ימי חלוקה",
+  DELIVERY_DAYS: ["ראשון", "שני", "שלישי", "רביעי", "חמישי", "שישי"],
+  SALES_AGENT: "סוכן מכירות",
+  PHONE_NUMBER: "מספר טלפון",
+  COMMUNICATION_LABEL: "ביצוע הזמנה דרך",
   COMMUNICATION_OPTIONS: ["אימייל", "וואצאפ", "טלפון"],
 };
 const SIZES = {
@@ -70,6 +75,15 @@ const PRODUCTS_TABLE_COLUMNS = [
   SIZES.VALUES.BOX_DOUGH,
   SIZES.VALUES.BATH,
 ];
+const SUPPLIERS_TABLE_COLUMNS = [
+  SUPPLIER.NAME,
+  SUPPLIER.TYPE,
+  SUPPLIER.ORDER_DAYS_LABEL,
+  SUPPLIER.DELIVERY_DAYS_LABEL,
+  SUPPLIER.SALES_AGENT,
+  SUPPLIER.PHONE_NUMBER,
+  SUPPLIER.COMMUNICATION_LABEL,
+];
 const INVENTORY = {
   TABLES_OPTIONS: ["יומית", "שבועית", "דו-שבועית", "מיוחדת", "חודשית"],
   TABLES_COLUMNS: [
@@ -97,6 +111,7 @@ const INVENTORY = {
 exports.HEB = {
   PRODUCT,
   PRODUCTS_TABLE_COLUMNS,
+  SUPPLIERS_TABLE_COLUMNS,
   SUPPLIER,
   SIZES,
   IN_STOCK,
