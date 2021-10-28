@@ -84,6 +84,7 @@ const SUPPLIERS_TABLE_COLUMNS = [
   SUPPLIER.SALES_AGENT,
   SUPPLIER.PHONE_NUMBER,
   SUPPLIER.COMMUNICATION_LABEL,
+  "מחיקה",
 ];
 const INVENTORY = {
   TABLES_OPTIONS: ["יומית", "שבועית", "דו-שבועית", "מיוחדת", "חודשית"],
