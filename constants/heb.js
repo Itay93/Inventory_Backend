@@ -58,6 +58,7 @@ const CALCULATIONS = {
 };
 const INSERT_ORDER = "הזן הזמנה";
 const PRODUCTS_TABLE_COLUMNS = [
+  "#",
   PRODUCT.NAME,
   PRODUCT.PRICE,
   PRODUCT.VALUE_IN_SALES,
@@ -77,6 +78,7 @@ const PRODUCTS_TABLE_COLUMNS = [
   "מחיקה",
 ];
 const SUPPLIERS_TABLE_COLUMNS = [
+  "#",
   SUPPLIER.NAME,
   SUPPLIER.TYPE,
   SUPPLIER.ORDER_DAYS_LABEL,
@@ -89,6 +91,7 @@ const SUPPLIERS_TABLE_COLUMNS = [
 const INVENTORY = {
   TABLES_OPTIONS: ["יומית", "שבועית", "דו-שבועית", "מיוחדת", "חודשית"],
   TABLES_COLUMNS: [
+    "#",
     SUPPLIER.NAME,
     PRODUCT.NAME,
     PRODUCT.PRICE,
