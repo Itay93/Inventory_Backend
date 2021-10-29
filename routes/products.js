@@ -18,6 +18,31 @@ router.get("/", async (req, res) => {
   res.send({ isError: false, products });
 });
 
+// patch product
+router.patch("/:id", async (req, res) => {
+  const product = await Product.findByIdAndUpdate(req.params.id, {
+    product: {
+      price: req.body.price,
+      valueInSales: req.body.valueInSales,
+    },
+    sizes: {
+      kg: req.body.kg,
+      box: req.body.box,
+      unit: req.body.unit,
+      third: req.body.third,
+      dThird: req.body.dThird,
+      boxDough: req.body.boxDough,
+      ambat: req.body.ambat,
+    },
+  });
+  if (!product)
+    return res.status(404).send({
+      isError: true,
+      error: "No product with the given id.",
+    });
+  res.send({ isError: false, product });
+});
+
 // post product
 router.post("/", async (req, res) => {
   const { error } = validate(req.body);
