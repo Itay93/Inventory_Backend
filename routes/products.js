@@ -23,19 +23,8 @@ router.patch("/:id", async (req, res) => {
   const product = await Product.findByIdAndUpdate(
     req.params.id,
     {
-      product: {
-        price: req.body.price,
-        valueInSales: req.body.valueInSales,
-      },
-      sizes: {
-        kg: req.body.kg,
-        box: req.body.box,
-        unit: req.body.unit,
-        third: req.body.third,
-        dThird: req.body.dThird,
-        boxDough: req.body.boxDough,
-        ambat: req.body.ambat,
-      },
+      product: req.body.product,
+      sizes: req.body.sizes,
     },
     { new: true }
   );
