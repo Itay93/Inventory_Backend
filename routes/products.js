@@ -20,21 +20,25 @@ router.get("/", async (req, res) => {
 
 // patch product
 router.patch("/:id", async (req, res) => {
-  const product = await Product.findByIdAndUpdate(req.params.id, {
-    product: {
-      price: req.body.price,
-      valueInSales: req.body.valueInSales,
+  const product = await Product.findByIdAndUpdate(
+    req.params.id,
+    {
+      product: {
+        price: req.body.price,
+        valueInSales: req.body.valueInSales,
+      },
+      sizes: {
+        kg: req.body.kg,
+        box: req.body.box,
+        unit: req.body.unit,
+        third: req.body.third,
+        dThird: req.body.dThird,
+        boxDough: req.body.boxDough,
+        ambat: req.body.ambat,
+      },
     },
-    sizes: {
-      kg: req.body.kg,
-      box: req.body.box,
-      unit: req.body.unit,
-      third: req.body.third,
-      dThird: req.body.dThird,
-      boxDough: req.body.boxDough,
-      ambat: req.body.ambat,
-    },
-  });
+    { new: true }
+  );
   if (!product)
     return res.status(404).send({
       isError: true,
