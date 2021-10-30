@@ -7,6 +7,7 @@ const app = express();
 
 const constants = require("./routes/constants");
 const users = require("./routes/users");
+const auth = require("./routes/auth");
 const products = require("./routes/products");
 const suppliers = require("./routes/suppliers");
 
@@ -44,6 +45,7 @@ app.use((req, res, next) => {
 app.use(express.json());
 app.use("/api/constants", constants);
 app.use("/api/users", users);
+app.use("/api/auth", auth);
 app.use("/api/products", products);
 app.use("/api/suppliers", suppliers);
 app.use((err, req, res, next) => {
