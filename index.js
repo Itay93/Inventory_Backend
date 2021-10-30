@@ -6,8 +6,9 @@ const express = require("express");
 const app = express();
 
 const constants = require("./routes/constants");
-const suppliers = require("./routes/suppliers");
+const users = require("./routes/users");
 const products = require("./routes/products");
+const suppliers = require("./routes/suppliers");
 
 process.on("uncaughtException", (err) => {
   console.log(err);
@@ -42,8 +43,9 @@ app.use((req, res, next) => {
 });
 app.use(express.json());
 app.use("/api/constants", constants);
-app.use("/api/suppliers", suppliers);
+app.use("/api/users", users);
 app.use("/api/products", products);
+app.use("/api/suppliers", suppliers);
 app.use((err, req, res, next) => {
   res.status(500).send(err.message);
 });
