@@ -29,10 +29,8 @@ router.post("/", async (req, res) => {
       error: "Invalid email or password.",
     });
 
-  const token = jwt.sign(
-    _.pick(user, ["_id", "name", "email"]),
-    "jwtPrivateKey"
-  );
+  const token = jwt.sign({ _id: user._id }, "jwtPrivateKey");
+
   res.send({
     isError: false,
     token,
