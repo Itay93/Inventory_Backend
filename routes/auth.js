@@ -2,6 +2,7 @@ const _ = require("lodash");
 const bcrypt = require("bcrypt");
 const Joi = require("joi");
 const jwt = require("jsonwebtoken");
+const config = require("config");
 const express = require("express");
 const router = express.Router();
 
@@ -29,11 +30,9 @@ router.post("/", async (req, res) => {
       error: "Invalid email or password.",
     });
 
-  const token = jwt.sign({ _id: user._id }, "jwtPrivateKey");
-
   res.send({
     isError: false,
-    token,
+    toekn: user.generateAuthToken(),
   });
 });
 

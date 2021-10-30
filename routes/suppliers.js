@@ -2,11 +2,12 @@ const _ = require("lodash");
 const express = require("express");
 const router = express.Router();
 
+const checkAuthToken = require("../middlewares/auth");
 const { ENG } = require("../constants/eng");
 const { Supplier, validate } = require("../models/supplier");
 
 // get all suppliers
-router.get("/", async (req, res) => {
+router.get("/", checkAuthToken, async (req, res) => {
   const suppliers = await Supplier.find().sort(ENG.SUPPLIER.NAME);
   if (suppliers.length === 0)
     return res.status(404).send({
@@ -17,7 +18,7 @@ router.get("/", async (req, res) => {
 });
 
 // post supplier
-router.post("/", async (req, res) => {
+router.post("/", checkAuthToken, async (req, res) => {
   const { error } = validate(req.body);
   if (error)
     return res
@@ -40,7 +41,7 @@ router.post("/", async (req, res) => {
 });
 
 // delete supplier
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", checkAuthToken, async (req, res) => {
   const supplier = await Supplier.findByIdAndRemove(req.params.id);
   if (!supplier)
     return res.status(404).send({

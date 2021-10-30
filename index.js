@@ -1,5 +1,6 @@
 require("express-async-errors");
 const mongoose = require("mongoose");
+const config = require("config");
 const helmet = require("helmet");
 const compression = require("compression");
 const express = require("express");
@@ -10,6 +11,11 @@ const users = require("./routes/users");
 const auth = require("./routes/auth");
 const products = require("./routes/products");
 const suppliers = require("./routes/suppliers");
+
+if (!config.get("jwtPrivateKey")) {
+  console.error("FATAL ERROR: jwtPrivateKey is not defined.");
+  process.exit(1);
+}
 
 process.on("uncaughtException", (err) => {
   console.log(err);

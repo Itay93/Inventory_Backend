@@ -2,11 +2,12 @@ const _ = require("lodash");
 const express = require("express");
 const router = express.Router();
 
+const checkAuthToken = require("../middlewares/auth");
 const { ENG } = require("../constants/eng");
 const { Product, validate } = require("../models/product");
 
 // get all products
-router.get("/", async (req, res) => {
+router.get("/", checkAuthToken, async (req, res) => {
   const products = await Product.find().sort(
     `${ENG.SUPPLIER.SUPPLIER}.${ENG.SUPPLIER.NAME}`
   );
@@ -19,7 +20,7 @@ router.get("/", async (req, res) => {
 });
 
 // patch product
-router.patch("/:id", async (req, res) => {
+router.patch("/:id", checkAuthToken, async (req, res) => {
   const product = await Product.findByIdAndUpdate(
     req.params.id,
     {
@@ -37,7 +38,7 @@ router.patch("/:id", async (req, res) => {
 });
 
 // post product
-router.post("/", async (req, res) => {
+router.post("/", checkAuthToken, async (req, res) => {
   const { error } = validate(req.body);
   if (error)
     return res
@@ -86,7 +87,7 @@ router.post("/", async (req, res) => {
 });
 
 // delete product
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", checkAuthToken, async (req, res) => {
   const product = await Product.findByIdAndRemove(req.params.id);
   if (!product)
     return res.status(404).send({
