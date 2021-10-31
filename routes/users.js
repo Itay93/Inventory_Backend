@@ -1,4 +1,6 @@
 const _ = require("lodash");
+const jwt = require("jsonwebtoken");
+const config = require("config");
 const bcrypt = require("bcrypt");
 const express = require("express");
 const router = express.Router();
