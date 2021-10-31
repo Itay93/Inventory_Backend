@@ -32,10 +32,13 @@ router.post("/", async (req, res) => {
     config.get("jwtPrivateKey")
   );
 
-  res.header("x-auth-token", token).send({
-    isError: false,
-    user: _.pick(user, ["_id", "name", "email"]),
-  });
+  res
+    .header("x-auth-token", token)
+    .header("access-control-expose-headers", "x-auth-token")
+    .send({
+      isError: false,
+      user: _.pick(user, ["_id", "name", "email"]),
+    });
 });
 
 module.exports = router;
